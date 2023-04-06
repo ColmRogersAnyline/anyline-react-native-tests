@@ -122,26 +122,11 @@ class AnylineApp extends Component {
     delete data.fullImagePath;
     delete data.imagePath;
 
-    let licensePlateId = "";
-    const str = data;
-    if (str.length < 17 || str.length > 20) {
-        licensePlateId = "Error: string length must be between 17 and 20";
-    } else if (str.length === 17) {
-        licensePlateId = str;
-    } else if (str.length === 18) {
-        licensePlateId = str.slice(1);
-    } else if (str.length === 19) {
-        licensePlateId = str.slice(1, -1);
-    } else if (str.length === 20) {
-        licensePlateId = str.slice(2, -1);
-    }
-
     this.setState({
         hasScanned: true,
         result: data,
         imagePath,
-        fullImagePath,
-        licensePlateId,
+        fullImagePath
     });
 
     console.log(str);
@@ -159,8 +144,7 @@ class AnylineApp extends Component {
       hasScanned: false,
       result: {},
       imagePath: '',
-      fullImagePath: '',
-      licensePlateId: ''
+      fullImagePath: ''
     });
   };
 
@@ -169,8 +153,7 @@ class AnylineApp extends Component {
         hasScanned,
         result,
         imagePath,
-        fullImagePath,
-        licensePlateId
+        fullImagePath
     } = this.state;
 
     BackHandler.addEventListener('hardwareBackPress', () => {
@@ -193,7 +176,6 @@ class AnylineApp extends Component {
                   result={result}
                   imagePath={imagePath}
                   fullImagePath={fullImagePath}
-                  licensePlateId={licensePlateId}
               />
             ) : (
                 platformText
