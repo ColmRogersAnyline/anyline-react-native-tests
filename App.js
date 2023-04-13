@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
   BackHandler,
   PermissionsAndroid,
-  LayoutAnimation,
   StyleSheet,
   Text,
   View
@@ -19,18 +18,16 @@ class AnylineApp extends Component {
       hasScanned: false,
       result: '',
       imagePath: '',
-      SDKVersion: '',
       fullImagePath: ''
     }
   }
 
-  componentDidMount = async () => {
-    const SDKVersion = await AnylineOCR.getSDKVersion();
-    this.setState({SDKVersion: SDKVersion});
-  };
+  componentDidMount() {
+    BackHandler.addEventListener('hardwareBackPress', this.handleBackButton);
+  }
 
-  componentWillUpdate() {
-    LayoutAnimation.easeInEaseOut();
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', this.handleBackButton);
   }
 
   initLicense = () => {
@@ -129,7 +126,7 @@ class AnylineApp extends Component {
         fullImagePath
     });
 
-    console.log(str);
+    console.log(result);
   };
 
   onError = (error) => {
@@ -155,15 +152,6 @@ class AnylineApp extends Component {
         imagePath,
         fullImagePath
     } = this.state;
-
-    BackHandler.addEventListener('hardwareBackPress', () => {
-      if (hasScanned) {
-        this.emptyResult();
-        return true;
-      } else {
-        BackHandler.exitApp();
-      }
-    });
 
     const platformText = (Platform.OS === 'android') ?
         (<Text onPress={this.checkCameraPermissionAndOpen} key="androidButton">Open OCR reader!</Text>) :

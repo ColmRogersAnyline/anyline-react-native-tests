@@ -61,15 +61,14 @@ export default function Result({
                 .filter(withoutImagePaths)
                 .map((value, key) => {
                 return  (
-                    <View style={styles.resultContainer}>
-                    <Text
-                        style={styles.textResultLabel}
-                        key={`Result_Label_${key}`}>
-                        {value}:
-                    </Text>
-                    <Text style={styles.textResult} key={`Result_Text_${key}`}>
-                        {flattenResult[value]}
-                    </Text>
+                    <View style={styles.resultContainer} key={`Result_Label_${key}`}>
+                      <Text
+                          style={styles.textResultLabel}>
+                          {value}:
+                      </Text>
+                      <Text style={styles.textResult} key={`Result_Text_${key}`}>
+                          {flattenResult[value]}
+                      </Text>
                     </View>
                 );
                 })}
@@ -79,7 +78,6 @@ export default function Result({
         </View>
     );
 }
-
 const styles = StyleSheet.create({
     image: {
         flex: 1,

@@ -1,7 +1,7 @@
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-platform :ios, '12.0'
+platform :ios, '13.0'
 install! 'cocoapods', :deterministic_uuids => false
 
 target 'RNv42Test1' do
@@ -45,6 +45,12 @@ target 'RNv42Test1' do
 
   use_native_modules!
   post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+              config.build_settings['SWIFT_VERSION'] = '5.0'
+              config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
+      end
+    end
     react_native_post_install(installer)
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
   end
