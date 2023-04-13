@@ -1619,10 +1619,10 @@ ansi-styles@^4.0.0, ansi-styles@^4.1.0:
   dependencies:
     color-convert "^2.0.1"
 
-anyline-ocr-react-native-module@^42.2.0:
-  version "42.2.0"
-  resolved "https://registry.yarnpkg.com/anyline-ocr-react-native-module/-/anyline-ocr-react-native-module-42.2.0.tgz#19e96924b5076c2a399251dcf0d26cad690c09bb"
-  integrity sha512-yKkLWf0BEXHAKmmyC8CaYo2P1lvcvrBFLdefU3UMOBTZALSr6noVfXOoIeejHG6/4GCv+F8fCbVHXrGODYYvyw==
+anyline-ocr-react-native-module@44.1.2:
+  version "44.1.2"
+  resolved "https://registry.yarnpkg.com/anyline-ocr-react-native-module/-/anyline-ocr-react-native-module-44.1.2.tgz#b95e3c589d4cfc048aa17b3479805afa43dca37c"
+  integrity sha512-bEk79Hbo21YIhzeB80KdOXJeKU+AKWHcVWT5UO9HIQe+bUHo41T87oeNV9Xr2l/Kghr7NcCj9Daf58MEuh9u7g==
   dependencies:
     buffer "^5.1.0"
 
