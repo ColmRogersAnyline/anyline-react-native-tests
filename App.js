@@ -43,37 +43,6 @@ class AnylineApp extends Component {
     );
   };
 
-  // openAnyline = async () => {
-  //   try {
-  //     console.log(`AnylineOCR.setupPromise`);
-  //     const result = await AnylineOCR.setupPromise(
-  //       JSON.stringify(LPConfig),
-  //       'scan',
-  //     );
-
-  //     console.log(result);
-
-  //     const data = JSON.parse(result);
-  //     LayoutAnimation.easeInEaseOut();
-  //     const fullImagePath = data.fullImagePath;
-  //     const imagePath = data.imagePath;
-  //     delete data.fullImagePath;
-  //     delete data.imagePath;
-
-  //     this.setState({
-  //       hasScanned: true,
-  //       result: data,
-  //       imagePath,
-  //       fullImagePath
-  //     });
-  //   } catch (error) {
-  //     if (error.message !== 'Canceled') {
-  //       console.log(error.message);
-  //       alert(error)
-  //     }
-  //   }
-  // };
-
   requestCameraPermission = async() => {
     try {
         const granted = await PermissionsAndroid.request(
